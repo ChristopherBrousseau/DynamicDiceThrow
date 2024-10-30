@@ -55,7 +55,13 @@ class MainActivity : AppCompatActivity(), ButtonFragment.ButtonInterface {
         */
     // Remember to place Fragment transactions on BackStack so then can be reversed
     override fun buttonClicked() {
-
+        if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            dieFragment = DieFragment()
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.container1, dieFragment)
+                .addToBackStack(null)
+                .commit()
+        }
     }
 
 
